@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "295701490748",
+    "project_id": "checkme-a0847",
+    "storage_bucket": "checkme-a0847.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:295701490748:android:5cf52ec6931099527aa739",
+        "android_client_info": {
+          "package_name": "com.example.checkme"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAr9qc5EftpsBSO6uOoPV9ww_Fd8ZohPmI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

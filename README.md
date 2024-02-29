@@ -1,0 +1,1 @@
+ref1: add pub {provider, firebase auth/core}, link database, simple login layout
