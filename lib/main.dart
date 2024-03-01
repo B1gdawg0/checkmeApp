@@ -1,5 +1,7 @@
 import 'package:checkme/dataController.dart';
 import 'package:checkme/login.dart';
+import 'package:checkme/mappage.dart';
+import 'package:checkme/register.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
@@ -12,6 +14,8 @@ Widget CheckMeSetUp(){
     initialRoute: "./",
     routes: {
       "./":(context) => Login(),
+      "./register":(context) => Register(),
+      "./mappage":(context)=> Mappage(),
     },
   );
 }
