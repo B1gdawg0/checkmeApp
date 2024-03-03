@@ -1,3 +1,6 @@
+import 'package:email_validator/email_validator.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 class Login extends StatefulWidget{
@@ -12,6 +15,7 @@ class _Login extends State<Login>{
   var _KeyForm = GlobalKey<FormState>();
   var userEditController = TextEditingController();
   var passwordEditController = TextEditingController();
+  bool canSee = true;
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +41,7 @@ class _Login extends State<Login>{
                   controller: userEditController,
                   validator: (value) {
                     if(value == null || value.isEmpty) return "User must not be empty";
-                    else if(value.length < 6) return "Username must longer than 5 character";
+                    if(!EmailValidator.validate(value)) return "Please enter valid email before login";
                   },
                   decoration: const InputDecoration(
                     prefixIcon: Icon(Icons.person,size: 20,),
@@ -48,12 +52,21 @@ class _Login extends State<Login>{
 
                 TextFormField(
                   controller: passwordEditController,
+                  obscureText: canSee,
                   validator: (value){
                     if(value == null || value.isEmpty) return "Password must not be empty";
                     else if(value.length < 6) return "Password must longer than 5 character";
                   },
-                  decoration: const InputDecoration(
-                    prefixIcon: Icon(Icons.password,size: 20,),
+                  decoration: InputDecoration(
+                    prefixIcon: const Icon(Icons.password,size: 20,),
+                    suffix: GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          canSee = !canSee;
+                        });
+                      },
+                      child: canSee?Icon(Icons.visibility):Icon(Icons.visibility_off),
+                    ),
                     labelText: "Password"
                   ),
                 ),
@@ -65,16 +78,28 @@ class _Login extends State<Login>{
                     width: 300,
                     height: 40,
                     child: ElevatedButton(
-                    onPressed:() {
+                    onPressed:() async{
                       if(_KeyForm.currentState!.validate()){
                         var user = userEditController.text;
                         var password = passwordEditController.text;
 
-                        // This should be login if else statement !(here (1))
-
-                        print("$user $password");
-
-                        Navigator.pushReplacementNamed(context, "./mappage");
+                        try{
+                          await FirebaseAuth.instance.signInWithEmailAndPassword(email: user, password: password);
+                          Navigator.pushReplacementNamed(context, "./mappage");
+                        }on FirebaseAuthException catch(e){
+                          setState(() {
+                            passwordEditController.text = "";
+                          });
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              content: Text(
+                                "The email or password you entered is incorrect. Please try again or create an account.",
+                                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                              ),
+                              backgroundColor: Colors.redAccent,
+                            )
+                          );
+                        }      
                       }
                     },
                     child: const Text("Login"),
