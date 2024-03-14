@@ -1,3 +1,5 @@
+import 'package:checkme/allPage.dart';
+import 'package:checkme/allbuildingpage.dart';
 import 'package:checkme/dataController.dart';
 import 'package:checkme/login.dart';
 import 'package:checkme/mappage.dart';
@@ -18,6 +20,8 @@ Widget CheckMeSetUp(){
       "./register":(context) => Register(),
       "./mappage":(context)=> Mappage(),
       "./profilepage":(context)=> Profilepage(),
+      "./allbuild":(context)=>AllBuilding(),
+      "./allpage":(context)=>AllPage()
     },
   );
 }

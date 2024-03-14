@@ -85,7 +85,7 @@ class _Login extends State<Login>{
 
                         try{
                           await FirebaseAuth.instance.signInWithEmailAndPassword(email: user, password: password);
-                          Navigator.pushReplacementNamed(context, "./mappage");
+                          Navigator.pushReplacementNamed(context, "./allpage");
                         }on FirebaseAuthException catch(e){
                           setState(() {
                             passwordEditController.text = "";

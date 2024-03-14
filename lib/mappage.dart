@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:checkme/component/menu_bar.dart';
 
 class Mappage extends StatefulWidget {
   Mappage({super.key});
@@ -10,17 +9,9 @@ class Mappage extends StatefulWidget {
 
 
 class _Mappage extends State<Mappage>{
-  int currentIndex = 0;
+  int currentIndex = 1;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: Text("#Map"),
-        ),
-        body: Container(
-
-        ),
-        bottomNavigationBar: MenuBarComponent(currentIndex: currentIndex,),
-    );
+    return Container();
   }
 }
