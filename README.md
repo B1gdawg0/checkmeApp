@@ -8,3 +8,4 @@ ref1.2 fix menubar
 ref2 link login and register with database. still no style but everything work, should check warning word later. (pub add email_validator)
 
 ref2.1 change navbar.
+ref2.2 almost done items
