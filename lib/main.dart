@@ -1,6 +1,7 @@
 import 'package:checkme/allPage.dart';
 import 'package:checkme/allbuildingpage.dart';
 import 'package:checkme/dataController.dart';
+import 'package:checkme/descriptionpage.dart';
 import 'package:checkme/login.dart';
 import 'package:checkme/mappage.dart';
 import 'package:checkme/register.dart';
@@ -14,14 +15,15 @@ import 'package:firebase_auth/firebase_auth.dart';
 Widget CheckMeSetUp(){
   return MaterialApp(
     title: "checkme",
-    initialRoute: "./",
+    initialRoute: "./allpage",
     routes: {
       "./":(context) => Login(),
       "./register":(context) => Register(),
       "./mappage":(context)=> Mappage(),
       "./profilepage":(context)=> Profilepage(),
       "./allbuild":(context)=>AllBuilding(),
-      "./allpage":(context)=>AllPage()
+      "./allpage":(context)=>AllPage(),
+      "./description":(context)=>DescriptionPage()
     },
   );
 }

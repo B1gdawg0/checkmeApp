@@ -1,7 +1,10 @@
 import 'package:checkme/allbuildingpage.dart';
+import 'package:checkme/dataController.dart';
+import 'package:checkme/descriptionpage.dart';
 import 'package:checkme/mappage.dart';
 import 'package:checkme/profilepage.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class AllPage extends StatefulWidget{
   AllPage({super.key});
@@ -13,7 +16,7 @@ class AllPage extends StatefulWidget{
 
 class _AllPage extends State<AllPage>{
   int currentIndex = 0;
-  List<Widget> listPage = [AllBuilding(),Mappage(), Text("Nothing"), Profilepage()];
+  List<Widget> listPage = [AllBuilding(),Mappage(), Text("Nothing"), Profilepage(), DescriptionPage()];
   List<BottomNavigationBarItem> listMenuItem = [
         BottomNavigationBarItem(icon: Icon(Icons.house),label: "ทั้งหมด",),
         BottomNavigationBarItem(icon: Icon(Icons.map),label: "แผนที่",),
@@ -25,18 +28,18 @@ class _AllPage extends State<AllPage>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: listPage[currentIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        items: listMenuItem,
-        currentIndex: currentIndex,
-        onTap: (value) {
-          setState(() {
-            currentIndex = value;
-          });
-        },
-      )
-    );
+          appBar: AppBar(),
+          body: listPage[currentIndex],
+          bottomNavigationBar: BottomNavigationBar(
+            type: BottomNavigationBarType.fixed,
+            items: listMenuItem,
+            currentIndex: currentIndex,
+            onTap: (value) {
+              setState(() {
+                currentIndex = value;
+              });
+            },
+          )
+      );
   }
 }

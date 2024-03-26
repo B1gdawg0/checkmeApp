@@ -1,3 +1,5 @@
+import 'package:checkme/component/items.dart';
+import 'package:checkme/component/searchbar.dart';
 import 'package:flutter/material.dart';
 
 class AllBuilding extends StatefulWidget{
@@ -14,7 +16,12 @@ class _AllBuilding extends State<AllBuilding>{
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return ListView(
+      children: [
+        SearchBarAll(),
+        Items(name: "ศูนย์การเรียนรวม 3", like: 5.0, comment: 52, number: 7,path: "sc3.jpeg",),
+      ],
+    );
   }
 }
 
