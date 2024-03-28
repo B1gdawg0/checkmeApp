@@ -25,6 +25,7 @@ Widget CheckMeSetUp(){
       "./allpage":(context)=>AllPage(),
       "./description":(context)=>DescriptionPage()
     },
+    debugShowCheckedModeBanner: false,
   );
 }
 

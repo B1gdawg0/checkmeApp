@@ -19,7 +19,7 @@ class _AllBuilding extends State<AllBuilding>{
     return ListView(
       children: [
         SearchBarAll(),
-        Items(name: "ศูนย์การเรียนรวม 3", like: 5.0, comment: 52, number: 7,path: "sc3.jpeg",),
+        Items(name: "ศูนย์การเรียนรวม 3", like: 5.0, comment: 52, number: 7,path: "sc3.webp",),
       ],
     );
   }
